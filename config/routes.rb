@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :contestants, only: [:index, :show], as: :contestants
   end
 
-  resources :outings, only: :show
+  resources :outings, only: [:show, :destroy]
 
 end

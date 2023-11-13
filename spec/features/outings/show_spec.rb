@@ -22,6 +22,17 @@ RSpec.describe "Outing Show Page" do
     end
   end
 
+  describe 'USER STORTY 5/7' do
+    it "has a link after each contestant's name to remove" do
+      expect(page).to have_link("Remove", count: 3)
+      within("#contestant-#{@brian.id}") do
+        click_link "Remove"
+      end
+      expect(current_path).to eq(outing_path(@helicopter))
+      expect(page).to_not have_content(@brian.name)
+    end
+  end
+
 
 
 end

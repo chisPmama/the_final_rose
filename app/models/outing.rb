@@ -10,7 +10,4 @@ class Outing < ApplicationRecord
     contestants.count
   end
 
-  def contestants_list
-    contestants.pluck(:name).join(", ")
-  end
 end

@@ -3,4 +3,9 @@
 <b>Date:</b> <%= @outing.print_date %><br>
 <b>Count of Contestants:</b> <%= @outing.count_contestants%><br>
 <br>
-<b>Contestants:</b> <%= @outing.contestants_list %>
+<b>Contestants:</b>
+<% @outing.contestants.distinct.each do |c| %>
+  <div id="contestant-<%= c.id %>">
+    <%= c.name %> <%= link_to "Remove", outing_path(@outing, contestant_id: c.id), method: :delete%>
+  </div>
+<% end %>

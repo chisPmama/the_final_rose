@@ -22,9 +22,4 @@ RSpec.describe Outing, type: :model do
     end
   end
 
-  describe '#contestants_list' do
-    it 'will return the names of the contestants in a joined string' do
-      expect(@helicopter.contestants_list).to eq("Brian Bowles, Chasen Coscia, Hunter Jones")
-    end
-  end
 end
