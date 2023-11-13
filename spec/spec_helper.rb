@@ -11,6 +11,16 @@
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
+
+def test_data
+  @hannah = Bachelorette.create!(name: "Hannah Brown", season_number: 15, description: "The Most Dramatic Season Yet!")
+  @matthew = @hannah.contestants.create!(name: "Matthew Spraggins", age: 23, hometown: "Newport Beach, California")
+  @brian = @hannah.contestants.create!(name: "Brian Bowles", age: 30, hometown: "Louisville, Kentucky")
+  @chasen = @hannah.contestants.create!(name: "Chasen Coscia", age: 27, hometown: "Longview, Washington")
+  @hunter = @hannah.contestants.create!(name: "Hunter Jones", age: 24, hometown: "Westchester, California")
+  @test = Bachelorette.create!(name: "candy", season_number: 15, description: "The Most Dramatic Season Yet!")
+  @test.contestants.create!(name: "test", age: 100, hometown: "mars")
+end
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

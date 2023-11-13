@@ -2,17 +2,11 @@ require "rails_helper"
 
 RSpec.describe "the bachelorette show page" do
   before(:each) do
-    @hannah = Bachelorette.create!(name: "Hannah Brown", season_number: 15, description: "The Most Dramatic Season Yet!")
-    @matthew = @hannah.contestants.create!(name: "Matthew Spraggins", age: 23, hometown: "Newport Beach, California")
-    @brian = @hannah.contestants.create!(name: "Brian Bowles", age: 30, hometown: "Louisville, Kentucky")
-    @chasen = @hannah.contestants.create!(name: "Chasen Coscia", age: 27, hometown: "Longview, Washington")
-    @hunter = @hannah.contestants.create!(name: "Hunter Jones", age: 24, hometown: "Westchester, California")
-    @test = Bachelorette.create!(name: "candy", season_number: 15, description: "The Most Dramatic Season Yet!")
-    @test.contestants.create!(name: "test", age: 100, hometown: "mars")
-    visit "/bachelorettes/#{@hannah.id}"
+    test_data
+    visit bachelorette_path(@hannah)
   end
 
-  describe '#User Story 1/7' do
+  describe 'USER STORY 1/7' do
     it 'when visiting the bachelorette show page displays the bachelorette name, season number, and description' do
       expect(page).to have_content(@hannah.name)
       expect(page).to have_content(@hannah.season_number)

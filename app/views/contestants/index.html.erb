@@ -2,6 +2,8 @@
 <h2><%= @bachelorette.name %>'s Contestants</h2>
 <ol>
   <% @contestants.each do |c| %>
-    <li> <b><%= c.name %></b> | Age: <%= c.age %> | Hometown: <%= c.hometown %></li>
+    <li> <b><%= c.name %></b><br>
+        Age: <%= c.age %><br>
+        Hometown: <%= c.hometown %></li><br>
   <% end %>
 </ol>
