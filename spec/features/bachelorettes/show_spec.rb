@@ -24,5 +24,12 @@ RSpec.describe "the bachelorette show page" do
 
   end
 
+  describe 'USER STORY 6/7' do
+    it 'when visiting the show page, shows the average age of all of the contestants' do
+      expected_result = @hannah.contestants.uniq.map{|c| c.age}.sum.div(@hannah.contestants.count)
+      expect(page).to have_content("Average Age of Contestants: #{expected_result}")
+    end
+
+  end
 
 end
