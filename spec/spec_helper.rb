@@ -14,12 +14,22 @@
 
 def test_data
   @hannah = Bachelorette.create!(name: "Hannah Brown", season_number: 15, description: "The Most Dramatic Season Yet!")
+  @test = Bachelorette.create!(name: "candy", season_number: 15, description: "The Most Dramatic Season Yet!")
+
   @matthew = @hannah.contestants.create!(name: "Matthew Spraggins", age: 23, hometown: "Newport Beach, California")
   @brian = @hannah.contestants.create!(name: "Brian Bowles", age: 30, hometown: "Louisville, Kentucky")
   @chasen = @hannah.contestants.create!(name: "Chasen Coscia", age: 27, hometown: "Longview, Washington")
   @hunter = @hannah.contestants.create!(name: "Hunter Jones", age: 24, hometown: "Westchester, California")
-  @test = Bachelorette.create!(name: "candy", season_number: 15, description: "The Most Dramatic Season Yet!")
+  
   @test.contestants.create!(name: "test", age: 100, hometown: "mars")
+
+  @kickball = Outing.create!(name: "Kickball", location: "Bali", date: Date.new(2019, 12, 19))
+  @hotsprings = Outing.create!(name: "Hot Springs", location: "Bali", date: Date.new(2019, 10, 8))
+  @helicopter = Outing.create!(name: "Helicopter Ride", location: "Bali", date: Date.new(2020, 1, 2))
+
+  ContestantOuting.create!(contestant: @hunter, outing: @kickball)
+  ContestantOuting.create!(contestant: @hunter, outing: @hotsprings)
+  ContestantOuting.create!(contestant: @hunter, outing: @helicopter)
 end
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
