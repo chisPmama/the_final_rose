@@ -29,6 +29,7 @@ def test_data
 
   ContestantOuting.create!(contestant: @hunter, outing: @kickball)
   ContestantOuting.create!(contestant: @hunter, outing: @hotsprings)
+  ContestantOuting.create!(contestant: @brian, outing: @hotsprings)
   ContestantOuting.create!(contestant: @hunter, outing: @helicopter)
   ContestantOuting.create!(contestant: @brian, outing: @helicopter)
   ContestantOuting.create!(contestant: @chasen, outing: @helicopter)

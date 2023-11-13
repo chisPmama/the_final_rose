@@ -22,14 +22,22 @@ RSpec.describe "Outing Show Page" do
     end
   end
 
-  describe 'USER STORTY 5/7' do
-    it "has a link after each contestant's name to remove" do
+  describe 'USER STORY 5/7' do
+    before :each do
       expect(page).to have_link("Remove", count: 3)
       within("#contestant-#{@brian.id}") do
         click_link "Remove"
       end
+    end
+
+    it "has a link after each contestant's name to remove" do
       expect(current_path).to eq(outing_path(@helicopter))
       expect(page).to_not have_content(@brian.name)
+    end
+    
+    it "when visiting another outing that this contestant was in, still has that contestant" do
+      visit outing_path(@hotsprings)
+      expect(page).to have_content(@brian.name)
     end
   end
 
