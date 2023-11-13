@@ -15,4 +15,13 @@ RSpec.describe Bachelorette, type: :model do
       expect(@hannah.average_age_contestants).to eq(expected_result)
     end
   end
+
+  describe '#hometowns' do
+    it 'returns a unique list of hometowns for the contestants' do
+      test = @hannah.contestants.create!(name: "Boy Toy", age: 24, hometown: "Louisville")
+      test2 = @hannah.contestants.create!(name: "Lover Boy", age: 27, hometown: "Louisville")
+
+      expect(@hannah.hometowns).to match_array(["Louisville", "Newport Beach", "Longview", "Westchester"])
+    end
+  end
 end

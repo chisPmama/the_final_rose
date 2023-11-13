@@ -7,3 +7,5 @@
         Hometown: <%= c.hometown %></li><br>
   <% end %>
 </ol>
+
+<b> These Contestants are from these hometowns: </b><%= @bachelorette.hometowns.join(", ") %>
