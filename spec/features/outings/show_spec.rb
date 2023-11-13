@@ -14,7 +14,6 @@ RSpec.describe "Outing Show Page" do
     end
 
     it "includes the number of contestants in the outing and their names" do
-      save_and_open_page
       expected_results = @helicopter.contestants.uniq
       expect(page).to have_content("Count of Contestants: #{expected_results.length}")
       expected_results.each do |c|
